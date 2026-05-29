@@ -5,23 +5,18 @@ export const estilosGlobales = StyleSheet.create({
     fondo: {
         flex: 1,
         backgroundColor: Colors.fondo,
-        justifyContent: 'flex-end',
     },
     cuenta: {
-        fontSize: 80,
-        fontFamily: 'SpaceMono',
-        textAlign: 'right',
         color: Colors.textoPrimario,
+        fontSize: 70,
+        textAlign: 'right',
+        fontWeight: 400,
     },
     resultado: {
-        fontSize: 40,
-        fontFamily: 'SpaceMono',
-        textAlign: 'right',
         color: Colors.textoSecundario,
-    },
-    fondoNumero: {
-        marginHorizontal: 20,
-        marginBottom: 20,
+        fontSize: 40,
+        textAlign: 'right',
+        fontWeight: 300,
     },
     textoBoton: {
         textAlign: 'center',
@@ -38,5 +33,16 @@ export const estilosGlobales = StyleSheet.create({
         borderRadius: 100,
         justifyContent: 'center',
         marginHorizontal: 10,
+    },
+    contenedorCalculadora: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        paddingBottom: 20,
+    },
+    fila: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 18,
+        paddingHorizontal: 10,
     },
 })

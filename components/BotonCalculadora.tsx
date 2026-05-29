@@ -15,7 +15,7 @@ interface Props {
 export default function BotonCalculadora({ texto, textoNegro = false, color = Colors.grisOscuro, dobleTamaño = false, presionarBoton }: Props) {
     return (
         <View>
-            <Pressable style={({ pressed }) => ({ ...estilosGlobales.boton, backgroundColor: color, opacity: pressed ? 0.8 : 1, width: dobleTamaño ? 180 : 80 })} onPress={() => { Haptics.selectionAsync(); presionarBoton }}>
+            <Pressable style={({ pressed }) => ({ ...estilosGlobales.boton, backgroundColor: color, opacity: pressed ? 0.8 : 1, width: dobleTamaño ? 180 : 80 })} onPress={() => { Haptics.selectionAsync(); presionarBoton() }}>
                 <Text style={{
                     ...estilosGlobales.textoBoton,
                     color: textoNegro ? 'black' : 'white'

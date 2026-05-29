@@ -4,13 +4,12 @@ import { Text, TextProps, View } from 'react-native';
 
 interface Props extends TextProps {
     variant?: 't1' | 't2';
-    fondo?: string;
 }
 
-const Texto = ({ children, variant = 't1', fondo, ...rest }: Props) => {
+const Texto = ({ children, variant = 't1', ...rest }: Props) => {
     return (
         <View>
-            <Text style={[{ color: 'white', fontFamily: 'SpaceMono', backgroundColor: fondo },
+            <Text style={[{ color: 'white', fontFamily: 'SpaceMono' },
             variant === 't1' && estilosGlobales.cuenta,
             variant === 't2' && estilosGlobales.resultado]}
                 numberOfLines={1}
