@@ -24,3 +24,4 @@ export default function BotonCalculadora({ texto, textoNegro = false, color = Co
         </View>
     )
 }
+

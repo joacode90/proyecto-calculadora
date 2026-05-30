@@ -5,131 +5,134 @@ import { useCalculator } from '@/hooks/useCalculator';
 import { estilosGlobales } from '@/styles/estilos-globales';
 import React from 'react';
 import { View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 const CalculatorApp = () => {
     const { formula, buildNumber, clean, cambioSigno } = useCalculator();
+    // const [palabra, setPalabra] = useState('');
+    // const [otraPalabra, setOtraPalabra] = useState('A');
+    // useEffect(() => { setPalabra(otraPalabra) }, [otraPalabra]);
 
     return (
-        <View style={estilosGlobales.contenedorCalculadora}>
+        <SafeAreaProvider >
 
-            {/* Resultados */}
+            <SafeAreaView style={estilosGlobales.contenedorCalculadora}>
 
-            <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
+                {/* Resultados */}
 
-                <Texto variant='t1'>{formula}</Texto>
+                <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
 
-                <Texto variant='t2'>250</Texto>
+                    <Texto variant='t1'>Cuenta</Texto>
+                    {/* <BotonCalculadora texto='*' presionarBoton={() => setOtraPalabra(otraPalabra + 'E')} /> */}
+                    <Texto variant='t2'>Resultado</Texto>
 
-            </View>
+                </View>
 
-            {/* Filas de botones 1 */}
+                {/* Filas de botones 1 */}
 
-            <View style={estilosGlobales.fila}>
+                <View style={estilosGlobales.fila}>
 
-                <BotonCalculadora
-                    texto='C'
-                    textoNegro
-                    color={Colors.grisClaro}
-                    presionarBoton={clean} />
-                <BotonCalculadora
-                    texto='+/-'
-                    textoNegro
-                    color={Colors.grisClaro}
-                    presionarBoton={cambioSigno} />
-                <BotonCalculadora
-                    texto='del'
-                    textoNegro
-                    color={Colors.grisClaro}
-                    presionarBoton={() => console.log('del')} />
-                <BotonCalculadora
-                    texto='%'
-                    color={Colors.naranja}
-                    presionarBoton={() => console.log('%')} />
+                    <BotonCalculadora
+                        texto='C'
+                        textoNegro
+                        color={Colors.grisClaro}
+                        presionarBoton={clean} />
+                    <BotonCalculadora
+                        texto='+/-'
+                        textoNegro
+                        color={Colors.grisClaro}
+                        presionarBoton={cambioSigno} />
+                    <BotonCalculadora
+                        texto='del'
+                        textoNegro
+                        color={Colors.grisClaro}
+                        presionarBoton={() => console.log('del')} />
+                    <BotonCalculadora
+                        texto='%'
+                        color={Colors.naranja}
+                        presionarBoton={() => console.log('%')} />
 
-            </View>
+                </View>
 
-            {/* Filas de botones 2 */}
+                {/* Filas de botones 2 */}
 
-            <View style={estilosGlobales.fila}>
+                <View style={estilosGlobales.fila}>
 
-                <BotonCalculadora
-                    texto='7'
-                    presionarBoton={() => buildNumber('7')} />
-                <BotonCalculadora
-                    texto='8'
-                    presionarBoton={() => buildNumber('8')} />
-                <BotonCalculadora
-                    texto='9'
-                    presionarBoton={() => buildNumber('9')} />
-                <BotonCalculadora
-                    texto='X'
-                    color={Colors.naranja}
-                    presionarBoton={() => console.log('X')} />
+                    <BotonCalculadora
+                        texto='7'
+                        presionarBoton={() => buildNumber('7')} />
+                    <BotonCalculadora
+                        texto='8'
+                        presionarBoton={() => buildNumber('8')} />
+                    <BotonCalculadora
+                        texto='9'
+                        presionarBoton={() => buildNumber('9')} />
+                    <BotonCalculadora
+                        texto='X'
+                        color={Colors.naranja}
+                        presionarBoton={() => console.log('X')} />
 
-            </View>
+                </View>
 
-            {/* Filas de botones 3 */}
+                {/* Filas de botones 3 */}
 
-            <View style={estilosGlobales.fila}>
+                <View style={estilosGlobales.fila}>
 
-                <BotonCalculadora
-                    texto='4'
-                    presionarBoton={() => buildNumber('4')} />
-                <BotonCalculadora
-                    texto='5'
-                    presionarBoton={() => buildNumber('5')} />
-                <BotonCalculadora
-                    texto='6'
-                    presionarBoton={() => buildNumber('6')} />
-                <BotonCalculadora
-                    texto='-'
-                    color={Colors.naranja}
-                    presionarBoton={() => console.log('-')} />
+                    <BotonCalculadora
+                        texto='4'
+                        presionarBoton={() => buildNumber('4')} />
+                    <BotonCalculadora
+                        texto='5'
+                        presionarBoton={() => buildNumber('5')} />
+                    <BotonCalculadora
+                        texto='6'
+                        presionarBoton={() => buildNumber('6')} />
+                    <BotonCalculadora
+                        texto='-'
+                        color={Colors.naranja}
+                        presionarBoton={() => console.log('-')} />
 
-            </View>
+                </View>
 
-            {/* Filas de botones 4 */}
+                {/* Filas de botones 4 */}
 
-            <View style={estilosGlobales.fila}>
+                <View style={estilosGlobales.fila}>
 
-                <BotonCalculadora
-                    texto='1'
-                    presionarBoton={() => buildNumber('1')} />
-                <BotonCalculadora
-                    texto='2'
-                    presionarBoton={() => buildNumber('2')} />
-                <BotonCalculadora
-                    texto='3'
-                    presionarBoton={() => buildNumber('3')} />
-                <BotonCalculadora
-                    texto='+'
-                    color={Colors.naranja}
-                    presionarBoton={() => console.log('+')} />
+                    <BotonCalculadora
+                        texto='1'
+                        presionarBoton={() => buildNumber('1')} />
+                    <BotonCalculadora
+                        texto='2'
+                        presionarBoton={() => buildNumber('2')} />
+                    <BotonCalculadora
+                        texto='3'
+                        presionarBoton={() => buildNumber('3')} />
+                    <BotonCalculadora
+                        texto='+'
+                        color={Colors.naranja}
+                        presionarBoton={() => console.log('+')} />
 
-            </View>
+                </View>
 
-            {/* Filas de botones 2 */}
+                {/* Filas de botones 2 */}
 
-            <View style={estilosGlobales.fila}>
+                <View style={estilosGlobales.fila}>
 
-                <BotonCalculadora
-                    texto='0'
-                    dobleTamaño
-                    presionarBoton={() => buildNumber('0')} />
-                <BotonCalculadora
-                    texto='.'
-                    presionarBoton={() => buildNumber('.')} />
-                <BotonCalculadora
-                    texto='='
-                    color={Colors.naranja}
-                    presionarBoton={() => console.log('=')} />
+                    <BotonCalculadora
+                        texto='0'
+                        dobleTamaño
+                        presionarBoton={() => buildNumber('0')} />
+                    <BotonCalculadora
+                        texto='.'
+                        presionarBoton={() => buildNumber('.')} />
+                    <BotonCalculadora
+                        texto='='
+                        color={Colors.naranja}
+                        presionarBoton={() => console.log('=')} />
 
-            </View>
-
-
-
-            {/* <ThemeText>Hola Mundo</ThemeText> */}
-        </View>
+                </View>
+            </SafeAreaView>
+        </SafeAreaProvider>
     )
 }
 

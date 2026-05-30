@@ -5,6 +5,12 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
+// const isAndroid = Platform.OS == 'android';
+
+// if (isAndroid) {
+//   NavigationBar.setBackgroundColorAsync('black');
+// }
+
 const RoorLayout = () => {
 
   const [cargada, error] = useFonts({

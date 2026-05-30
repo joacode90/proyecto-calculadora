@@ -11,57 +11,57 @@ export const useCalculator = () => {
 
     const [formula, setFormula] = useState('0');
 
-    const [number, setNumber] = useState('0');
+    const [numeroActual, setNumeroActual] = useState('0');
 
-    const [PrevNumber, setPrevNumber] = useState('0');
+    const [numeroAnterior, setNumeroAnterior] = useState('0');
 
-    const lastOperation = useRef<Operator>();
+    const lastOperation = useRef<Operator | null>(null);
 
     useEffect(() => {
         // Todo: calcular subResultado
-        setFormula(number);
-    }, [number]);
+        setFormula(numeroActual);
+    }, [numeroActual]);
 
     const clean = () => {
-        setNumber('0');
-        setPrevNumber('0');
+        setNumeroActual('0');
+        setNumeroAnterior('0');
         setFormula('0');
-        lastOperation.current = undefined;
+        lastOperation.current = null;
     }
 
     const cambioSigno = () => {
-        if (number.includes('-')) {
-            return setNumber(number.replace('-', ''));
+        if (numeroActual.includes('-')) {
+            return setNumeroActual(numeroActual.replace('-', ''));
         }
-        setNumber('-' + number);
+        setNumeroActual('-' + numeroActual);
     }
 
     const buildNumber = (numberString: string) => {
         //console.log({numberString});
         //verificar si ya existe el punto decimal
-        if (number.includes('.') && numberString == '.') return;
+        if (numeroActual.includes('.') && numberString == '.') return;
 
-        if (number.startsWith('0') || number.startsWith('-0')) {
+        if (numeroActual.startsWith('0') || numeroActual.startsWith('-0')) {
 
             if (numberString == '.') {
-                return setNumber(number + numberString);
+                return setNumeroActual(numeroActual + numberString);
             }
 
             //evaluar si es otro cero y no hay puntos
 
-            if (numberString == '0' && number.includes('.')) {
-                return setNumber(number + numberString);
+            if (numberString == '0' && numeroActual.includes('.')) {
+                return setNumeroActual(numeroActual + numberString);
             }
 
             //evaluar si es diferente de cero, no hay punto decimal y es el primer número
 
-            if (numberString != '0' && !number.includes('.')) {
-                return setNumber(numberString);
+            if (numberString != '0' && !numeroActual.includes('.')) {
+                return setNumeroActual(numberString);
             }
 
             //evitar el 0000000.00
 
-            if (numberString == '0' && !number.includes('.')) {
+            if (numberString == '0' && !numeroActual.includes('.')) {
                 return;
             }
 
@@ -69,7 +69,7 @@ export const useCalculator = () => {
 
         }
 
-        setNumber(number + numberString);
+        setNumeroActual(numeroActual + numberString);
     };
 
 
@@ -77,8 +77,8 @@ export const useCalculator = () => {
     return {
         // props
         formula,
-        number,
-        PrevNumber,
+        numeroActual,
+        numeroAnterior,
 
         //methods
         buildNumber,
